@@ -1,7 +1,7 @@
-# An additional parameter autouse=True, which will
-# indicate that the fixture should be run for each test even without an explicit call
+# Using the skip tests mark: @pytest.mark.skip:
 
-# Command: pytest -s -v 4_Testing_with_PyTest/test_fixture_autouse.py
+# Command: pytest -s -v 4_Testing_with_PyTest/test_fixture7.py
+
 
 import pytest
 from selenium import webdriver
@@ -12,8 +12,7 @@ chrome_options.add_argument("--remote-debugging-port=9515")
 
 link = "http://selenium1py.pythonanywhere.com/"
 
-
-@pytest.fixture
+@pytest.fixture(scope="function")
 def browser():
     print("\nstart browser for test..")
     browser = webdriver.Chrome(options=chrome_options)
@@ -21,15 +20,11 @@ def browser():
     print("\nquit browser..")
     browser.quit()
 
-@pytest.fixture(autouse=True)
-def prepare_data():
-    print()
-    print("preparing some critical data for every test")
-
 
 class TestMainPage1():
+
+    @pytest.mark.skip
     def test_guest_should_see_login_link(self, browser):
-        # не передаём как параметр фикстуру prepare_data, но она все равно выполняется
         browser.get(link)
         browser.find_element(By.CSS_SELECTOR, "#login_link")
 

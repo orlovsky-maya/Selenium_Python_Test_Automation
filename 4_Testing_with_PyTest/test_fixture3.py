@@ -1,3 +1,8 @@
+# Using keyword: yield
+# A separate browser is created for each test.
+
+# Command: pytest -s -v 4_Testing_with_PyTest/test_fixture3.py
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By

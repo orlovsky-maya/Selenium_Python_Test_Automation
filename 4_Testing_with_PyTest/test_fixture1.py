@@ -1,3 +1,9 @@
+# Creating the browser and closing it only once for all tests in the first test suite,
+# and creating a browser for each test in the second test suite.
+
+# Command: pytest -s 4_Testing_with_PyTest/test_fixture1.py
+
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
