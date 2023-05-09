@@ -5,8 +5,6 @@
 import pytest
 from selenium.webdriver.common.by import By
 
-# @pytest.fixture(scope="function") def browser() locates in conftest.py
-
 
 @pytest.mark.parametrize('language', ["ru", "en-gb"])
 def test_guest_should_see_login_link(browser, language):
